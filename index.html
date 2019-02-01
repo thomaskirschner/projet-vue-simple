@@ -7,13 +7,19 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     </head>
     <body> 
-            <div class="container">
-                    <h1>Cours de Vue.js</h1>
-                    <button type="button" @click="recuperepost" class="btn btn-success">Bouton</button>
-                    <p>Voici les derniers posts de votre blog</p> 
+      
+            <div class="container" id="app"> 
+                <!--<pre>{{posts}}</pre>-->
+                    <h1>Application</h1>
+                    
+                    <p>Retrouvez vos derniers posts ici</p> 
+                    <button type="button" @click="recuperepost" class="btn btn-success">Ajouter</button>
+                    <button type="button" @click="" class="btn btn-success">Supprimer</button>
                     </div>
-
    <script>
+     /* Vue.filter('capitalize', function(value){
+       returnvalue.substring(0,100)
+     })*/
     var app = new Vue({
   el: '#app',
   data: {
@@ -28,6 +34,7 @@ fetch('https://aer-recyclage.com/wp-json/wp/v2/posts')
      response.json()
      .then(function(response){
          console.log(response)
+         vm.posts = response
      });    
   })
     }
