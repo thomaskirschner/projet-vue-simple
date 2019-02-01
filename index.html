@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    </head>
-    <body> 
-      
-            <div class="container" id="app"> 
-                <!--<pre>{{posts}}</pre>-->
-                    <h1>Application</h1>
-                    
-                    <p>Retrouvez vos derniers posts ici</p> 
-                    <button type="button" @click="recuperepost" class="btn btn-success">Ajouter</button>
-                    <button type="button" @click="" class="btn btn-success">Supprimer</button>
-                    </div>
-   <script>
-     /* Vue.filter('capitalize', function(value){
-       returnvalue.substring(0,100)
-     })*/
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div class="container" id="app">
+    <!--<pre>{{posts}}</pre>-->
+    <h1>Application</h1>
+
+    <p>Retrouvez vos derniers posts ici</p>
+    <button type="button" @click="recuperepost" class="btn btn-success">Ajouter</button>
+    <button type="button" @click="" class="btn btn-success">Supprimer</button>
+  </div>
+  <script>
+    /* Vue.filter('capitalize', function(value){
+      returnvalue.substring(0,100)
+    })*/
     var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue !',
-    posts:[]
-  },
-  methods :{
-    recuperepost: function(){
-                    vm = this
-fetch('https://aer-recyclage.com/wp-json/wp/v2/posts')
- .then(function(response){
-     response.json()
-     .then(function(response){
-         console.log(response)
-         vm.posts = response
-     });    
-  })
-    }
-  }
-});
-</script>
-     </body>
+      el: '#app',
+      data: {
+        message: 'Hello Vue !',
+        posts: []
+      },
+      methods: {
+        recuperepost: function () {
+          vm = this
+          fetch('https://aer-recyclage.com/wp-json/wp/v2/posts')
+            .then(function (response) {
+              response.json()
+                .then(function (response) {
+                  console.log(response)
+                  vm.posts = response
+                });
+            })
+        }
+      }
+    });
+  </script>
+</body>
+
 </html>
